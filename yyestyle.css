@@ -141,7 +141,7 @@ ol.lng {
 
 /* Clear floats after the columns */
 /*https://www.w3schools.com/howto/howto_css_clearfix.asp*/
-.clearf:after {
+.row:after {
   content: "";
   display: table;
   clear: both;
