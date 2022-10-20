@@ -1,0 +1,253 @@
+/* padding, border and content are included in all element's total height and width*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Tahoma, sans-serif; 
+  /* fallback system, in case the browser dont support the first font*/
+  background-image: url('cloud1.jpeg');
+  background-repeat: no-repeat;
+}
+/* Style the header container*/
+.header {
+  padding: 20px;
+  text-align: left;
+  color:#B2526E;
+  
+}
+/* Style the title in the header */
+.header h1 { 
+  text-align:center;
+  font-size: 4vw;/* responsive title https://www.w3schools.com/howto/howto_css_responsive_text.asp*/
+  font-style: italic;
+  }
+  
+/* Style the text in the header */
+.header p { 
+  color: #F08080;
+  font-size: 1vw;
+  font-style: italic;
+
+  }
+
+/* Style subtitles */  
+h3 { 
+  color: black;
+  border-bottom: 3px solid black;
+  text-transform: uppercase;
+  }
+
+h4 {
+  Text-transform:capitalize;
+  text-decoration-line:underline;
+  text-decoration-style:wavy;
+  }
+  
+h5 {
+  font-style: italic;
+  Text-transform:capitalize;
+  }
+
+
+/* Style the main text */
+p { 
+  text-indent: 30px;
+  color: black; 
+  text-align:left;
+  
+  }
+  
+/* a special link to redirect on page */
+#alink {
+	color:pink;
+	text-shadow: 5px 5px 20px blue ;
+	/* text shadow: https://www.w3schools.com/cssref/css3_pr_text-shadow.asp */
+	font-style: italic;
+}
+
+
+/* navigation bar container */
+/* https://www.w3schools.com/howto/howto_js_topnav.asp */
+.naviga {
+  overflow: hidden; /* overflow will be clipped */
+  background-color: rgb(211,211,211,0.1); /* nearly-transparent navigation bar background*/
+  margin-bottom:5px; /* separate from the layout from bottom*/
+  display: block;/* The navigation bar takes up the whole width*/
+
+}
+
+/* Style the Navigation bar links */
+.naviga a {
+  float: left;
+  color: black;
+  text-align: center;
+  /* underline navigation bar https://www.w3schools.com/howto/howto_css_navbar_border.asp */
+  border-bottom: 5px solid transparent;
+  padding: 10px 12px;
+  text-decoration: none;
+}
+
+/* mouse over the link */
+.naviga a:hover {
+  border-bottom-width: 5px;
+  border-bottom-color: #B2526E;
+  border-bottom-style: solid;
+}
+
+/* when the link is selected */
+.naviga a.active {
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #303884;
+  color: yellow; /* text color when selected */
+  
+}
+
+/* layout: 0.3:0.5:0.2 */
+/* https://www.w3schools.com/css/css_website_layout.asp*/
+.layout {
+  float: left;
+  padding: 10px;
+  margin: 0 auto; /*horizontally centered within each column*/
+}
+/*left column*/
+.layout.left {
+  width:30%;
+  
+}
+/*middle column*/
+.layout.middle {
+  width:50%;
+
+}
+/*right column*/
+.layout.right {
+  width:20%;
+  
+}
+
+/* making bullet-form for some text*/
+/* https://www.w3schools.com/css/css_list.asp*/
+ul {
+	list-style-type:circle;
+	line-height: 1.8;
+	}
+ol.lng {
+	list-style-type:upper-roman;
+	Text-transform:capitalize;
+	}
+
+
+/* Clear floats after the columns */
+/*https://www.w3schools.com/howto/howto_css_clearfix.asp*/
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+.footer {
+  height: 20px;
+  text-align: center;
+  text-decoration:underline;
+
+  }
+  
+/* Responsive layout of Home Page when the screen is 800px wide or less, stack columns on top of each other */
+/*https://www.w3schools.com/html/html_responsive.asp*/
+@media screen and (max-width: 800px) {
+  .layout.left, .layout.middle, .layout.right 
+      {width: 100%;}
+	}
+
+
+/* https://www.w3schools.com/howto/howto_css_timeline.asp*/
+/* timeline container */
+.timeline{
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto; /*horizontally centered */
+}
+
+/* The vertical line of the timeline */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 5px; 
+  margin-left: -2px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: black;
+}
+
+/* Container around content */
+.tlcontent {
+  padding: 10px 20px;
+  position: relative;
+  background-color: rgb(211,211,211,0.2); /*nearly-transparent container */
+  width: 50%; /* half:half container */
+}
+
+/* The square marker on the timeline */
+.tlcontent::after {
+  content: '';
+  position: absolute;
+  background-color: #B2526E;
+  top: 60px;
+  height: 25px;
+  width: 25px;
+  right: -12px;
+  z-index: 1;  /* marker placed above the timeline */
+}
+
+/* content container to the left of the timeline*/
+.lleft {
+  left: 0%; /*0 to the left*/
+}
+
+/* content container(to the left) at the right of the timeline */
+.rright {
+  left: 50%; /*50% to the left */
+}
+
+
+/* marker for content containers on the right side */
+.rright::after {
+  left: -12px;
+}
+
+/* The content */
+.content {
+  padding: 30px 30px;
+  position: relative;
+
+}
+
+/*  Responsive timeline on screens when less than 800px wide */
+@media screen and (max-width: 800px) {
+  /* when less than 800px wide, timelime palced to the left */
+  .timeline::after {
+  left: 31px; 
+  }
+  
+  /* the timeline content container when less than 800px wide */
+  .tlcontent {
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 10%;
+  }
+  
+  /* Make sure all markers are at the same spot on the timeline*/
+  .lleft::after, .rright::after {
+  left: 19px;
+  }
+  
+  /* containers at the right behave like the left ones */
+  .rright {
+  left: 0%;
+  }
+}
+  
